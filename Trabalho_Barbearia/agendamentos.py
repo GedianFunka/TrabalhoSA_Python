@@ -1,5 +1,5 @@
-from Trabalho_Barbearia.config import DB_CONFIG
-from Trabalho_Barbearia.models import Agendamento
+from config import DB_CONFIG
+from models import Agendamento
 import mysql.connector
 
 def listar_agendamentos():

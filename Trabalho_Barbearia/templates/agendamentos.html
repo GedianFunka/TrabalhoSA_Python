@@ -1,10 +1,36 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<h1>Barbearia_GWK</h1>
+<p>Site oficial de agendamentos da nossa barbearia!</p>
+<nav>
+  <a href="/">Inicio</a>
+  <a href="{{ url_for('agendamentos') }}">Agendamentos</a>
+  <a href="{{ url_for('detalhes_agendamentos', id=agendamentos.id) }}">Detalhes</a>
+</nav>
 
-</body>
-</html>
+<table border="1">
+  <thead>
+    <tr>
+      <th>Cliente</th>
+      <th>Serviço</th>
+      <th>Barbeiro</th>
+      <th>Data</th>
+      <th>Horário</th>
+      <th>Status</th>
+    </tr>
+    {% for agendamento in agendamentos %}
+  </thead>
+
+  <tr>
+    {% if agendamento.status == 'Concluido' %} style="background-color: green;"
+    {% endif %} {% if agendamento.status == 'Cancelado' %}
+    style="background-color: red;" {% else agendamento.status == 'Agendado'%}
+    style="background-color: yellow;" {% endif %}>
+
+    <td>
+      {{loop.index}} - {{ agendamento.cliente }} - {{ agendamento.servico }} -
+      {{ agendamento.barbeiro }} - {{ agendamento.data }} - {{
+      agendamento.horario }} - {{ agendamento.status }}
+    </td>
+    <td><a href="{{url_for('detalhe', id=buscar_id)}}"></a></td>
+  </tr>
+  {% endfor %}
+</table>
