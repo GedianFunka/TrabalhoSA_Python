@@ -1,13 +1,18 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Barbearia_GWK</title>
+  </head>
+  <body>
+    <h1>Barbearia_GWK</h1>
+    <p>Site oficial de agendamentos da nossa barbearia!</p>
 
-    <h1>Bem-vindo à Barbearia</h1>
-    <p>Total de agendamentos: {{ agendamentos|length }}</p>
+    <p>No momento há {{ agendamentos|length }} agendamentos onlines.</p>
 
-</body>
+      <a href="/">Inicio</a>
+      <a href="{{ url_for('agendamentos') }}">Agendamentos</a>
+      <a href="{{ url_for('detalhes_agendamentos', id=agendamento.id) }}">Detalhes</a>
+
+  </body>
 </html>
