@@ -7,7 +7,7 @@ def listar_agendamentos():
     try:
         conexao = mysql.connector.connect(**DB_CONFIG)
         cursor = conexao.cursor()
-        cursor.execute("SELECT * FROM agendamentos ORDER BY data_hora")
+        cursor.execute("SELECT * FROM agendamentos ORDER BY data")
         return [Agendamento.reverte_tupla(linha) for linha in cursor.fetchall()]
 
     except mysql.connector.Error as erro:
