@@ -1,7 +1,18 @@
-<h1>Barbearia_GWK</h1>
-<p>Site oficial de agendamentos da nossa barbearia!</p>
-<nav>
-  <a href="/">Inicio</a>
-  <a href="{{ url_for('agendamentos') }}">Agendamentos</a>
-  <a href="{{ url_for('detalhes_agendamentos', id=agendamento.id) }}">Detalhes</a>
-</nav>
+<body>
+  <nav>
+    <a href="/">Inicio</a>
+    <a href="{{ url_for('agendamentos') }}">Agendamentos</a>
+    <a href="{{ url_for('detalhes_agendamentos', id=agendamento.id) }}">Detalhes</a>
+  </nav>
+  {% if agendamentos %}
+  {% if agendamentos_por_status == 0 %}
+      <p style= "color: red;"><strong>Cancelado</strong></p>"
+  {% elif agendamentos_por_status < 5 %}
+      <p style= "color: orange;"><strong>Agendado</strong></p>"
+  {% else %}
+      <p style= "color: green;"><strong>Concluido</strong></p>"
+  {% endif %}
+  {% else %}
+      <p>Agendamento não encontrado.</p>
+  {% endif %}
+</body>

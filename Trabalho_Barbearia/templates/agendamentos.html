@@ -16,21 +16,17 @@
       <th>Horário</th>
       <th>Status</th>
     </tr>
-    {% for agendamento in agendamentos %}
+    {% for agendamentos in agendamentos %}
   </thead>
 
   <tr>
-    {% if agendamento.status == 'Concluido' %} style="background-color: green;"
-    {% endif %} {% if agendamento.status == 'Cancelado' %}
-    style="background-color: red;" {% else agendamento.status == 'Agendado'%}
-    style="background-color: yellow;" {% endif %}>
-
+    
     <td>
-      {{loop.index}} - {{ agendamento.cliente }} - {{ agendamento.servico }} -
-      {{ agendamento.barbeiro }} - {{ agendamento.data }} - {{
-      agendamento.horario }} - {{ agendamento.status }}
+      {{loop.index}} - {{ agendamentos.cliente }} - {{ agendamentos.servico }} -
+      {{ agendamentos.barbeiro }} - {{ agendamentos.data }} - {{
+      agendamentos.horario }} - {{ agendamentos.status }}
     </td>
-    <td><a href="{{url_for('detalhe', id=buscar_id)}}"></a></td>
+    <td><a href="{{url_for('detalhe', id=buscar_id)}}">Detalhes</a></td>
   </tr>
   {% endfor %}
 </table>
