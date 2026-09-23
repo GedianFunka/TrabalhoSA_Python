@@ -14,7 +14,7 @@ horario varchar(5),
 status enum("Agendado", "Concluido", "Cancelado")
 );
 
-iINSERT INTO agendamentos (cliente, telefone, servico, preco, barbeiro, data, horario, status)
+INSERT INTO agendamentos (cliente, telefone, servico, preco, barbeiro, data, horario, status)
 Values('Gedian', '(47)992165428', 'Corte de cabelo', 55.00, 'Lucas', '2026-09-20', '10:50', 'Agendado'),
 ('Kauã', '(47)991544034', 'Corte de cabelo e barba', 75.00, 'Otavio', '2026-09-25', '15:30', 'Agendado'),
 ('Weslley', '(47)33752968', 'Corte de cabelo', 55.00, 'André', '2026-09-08', '09:00', 'Concluido'),
