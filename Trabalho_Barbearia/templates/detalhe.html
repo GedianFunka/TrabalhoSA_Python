@@ -3,15 +3,20 @@
     <a href="/">Inicio</a>
     <a href="{{ url_for('agendamentos') }}">Agendamentos</a>
   </nav>
-  {% if agendamentos %}
-  {% if agendamento.status == 0 %}
-      <p style= "color: red;"><strong>Cancelado</strong></p>"
-  {% elif agendamentos_por_status < 5 %}
-      <p style= "color: orange;"><strong>Agendado</strong></p>"
-  {% else %}
-      <p style= "color: green;"><strong>Concluido</strong></p>"
-  {% endif %}
-  {% else %}
-      <p>Agendamento não encontrado.</p>
-  {% endif %}
+    <h2>Detalhes do Agendamento</h2>
+    <p><strong>Cliente:</strong> {{ agendamento.cliente }}</p>
+    <p><strong>Telefone:</strong> {{ agendamento.telefone }}</p>
+    <p><strong>Serviço:</strong> {{ agendamento.servico }}</p>
+    <p><strong>Preço:</strong> {{ agendamento.preco }}</p>
+    <p><strong>Barbeiro:</strong> {{ agendamento.barbeiro }}</p>
+    <p><strong>Data:</strong> {{ agendamento.data }}</p>
+    <p><strong>Horário:</strong> {{ agendamento.horario }}</p>
+    <p><strong>Status:</strong> 
+    {% if agendamento.status == "Cancelado" %}
+        <span style="color: red;"><strong>Cancelado</strong></span>
+    {% elif agendamento.status == "Agendado" %}
+        <span style="color: orange;"><strong>Agendado</strong></span>
+    {% elif agendamento.status == "Concluido" %}
+        <span style="color: green;"><strong>Concluido</strong></span>
+    {% endif %}</p>
 </body>
