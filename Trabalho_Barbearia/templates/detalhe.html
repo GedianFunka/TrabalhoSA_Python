@@ -3,6 +3,7 @@
     <a href="/">Inicio</a>
     <a href="{{ url_for('agendamentos') }}">Agendamentos</a>
   </nav>
+  {% if agendamento %}
     <h2>Detalhes do Agendamento</h2>
     <p><strong>Cliente:</strong> {{ agendamento.cliente }}</p>
     <p><strong>Telefone:</strong> {{ agendamento.telefone }}</p>
@@ -18,5 +19,12 @@
         <span style="color: orange;"><strong>Agendado</strong></span>
     {% elif agendamento.status == "Concluido" %}
         <span style="color: green;"><strong>Concluido</strong></span>
-    {% endif %}</p>
+    {% endif %}
+  </p>
+
+  {% else %}
+    <h2 style="color: red;">Agendamento não encontrado!</h2>
+    <p>Não existe nenhum agendamento cadastrado com o ID <strong>{{ id }}</strong>.</p>
+    <p><a href="{{ url_for('agendamentos') }}">Voltar para a lista de agendamentos</a></p>
+  {% endif %}
 </body>
