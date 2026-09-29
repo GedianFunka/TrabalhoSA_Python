@@ -2,16 +2,20 @@
 <p>Site oficial de agendamentos da nossa barbearia!</p>
 <nav>
   <div>
-  <a href="/">Inicio</a>
-  <a href="{{ url_for('agendamentos') }}">Agendamentos</a>
-  <a href="{{ url_for('agendamentos', status='Agendado') }}">
-  <button type="button" style="background-color: #f3a704;" {% if status_atual == 'Agendado' %}disabled{% endif %}>Agendados</button> </a>
-  <a href="{{ url_for('agendamentos', status='Cancelado') }}">
-  <button type="button" style="background-color: #ff0202;" {% if status_atual == 'Cancelado' %}disabled{% endif %}>Cancelados</button>
-  </a>
-  <a href="{{ url_for('agendamentos', status='Concluido') }}">
-    <button type="button" style="background-color: #0ae43d;" {% if status_atual == 'Concluido' %}disabled{% endif %}>Concluídos</button>
-  </a>
+    <a href="/">Inicio</a>
+    <a href="{{ url_for('agendamentos') }}">Agendamentos</a>
+
+    <a href="{{ url_for('agendamentos_por_status', status='Agendado') }}">
+      <button type="button" style="background-color: #f3a704;" {% if status == 'Agendado' %}disabled{% endif %}>Agendados</button>
+    </a>
+
+    <a href="{{ url_for('agendamentos_por_status', status='Cancelado') }}">
+      <button type="button" style="background-color: #ff0202;" {% if status == 'Cancelado' %}disabled{% endif %}>Cancelados</button>
+    </a>
+
+    <a href="{{ url_for('agendamentos_por_status', status='Concluido') }}">
+      <button type="button" style="background-color: #0ae43d;" {% if status == 'Concluido' %}disabled{% endif %}>Concluídos</button>
+    </a>
   </div>
 </nav>
 
