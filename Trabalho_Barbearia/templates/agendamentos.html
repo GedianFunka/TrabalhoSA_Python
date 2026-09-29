@@ -21,12 +21,14 @@
   </thead>
   <tbody>
     {% for agendamento in agendamentos %}
+    
     <tr {% if agendamento.status == "Cancelado" %}
             style="background-color: #ff0202;"
         {% elif agendamento.status == "Agendado" %}
             style="background-color: #f3a704;"
         {% elif agendamento.status == "Concluido" %}
             style="background-color: #0ae43d;"
+        {% elif agendamento.status == "Agendamento não encontrado"}
         {% endif %}>
 
       <td>{{ agendamento.cliente }}</td>
